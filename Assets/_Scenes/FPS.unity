@@ -188,6 +188,8 @@ GameObject:
   - component: {fileID: 904769804}
   - component: {fileID: 904769806}
   - component: {fileID: 904769805}
+  - component: {fileID: 904769808}
+  - component: {fileID: 904769807}
   m_Layer: 5
   m_Name: FPS Panel
   m_TagString: Untagged
@@ -247,6 +249,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 904769803}
+--- !u!114 &904769807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904769803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ec0bdfd615d487993c36d14034b2e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsLabel: {fileID: 1836763361}
+--- !u!114 &904769808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904769803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6819567b3d3b941b68d4c1c4dfc7dfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &957468943
 GameObject:
   m_ObjectHideFlags: 0
