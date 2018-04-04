@@ -7,7 +7,7 @@
 public class Nucleon : MonoBehaviour {
     public float attractionForce;
 
-    private Rigidbody body;
+    Rigidbody body;
 
     void Awake() {
         body = GetComponent<Rigidbody>();
