@@ -29,4 +29,5 @@ http://catlikecoding.com/unity/tutorials/frames-per-second/.
 - That the Unity editor interferes the measurements in Profiler
 - That a standalone build attached to the Profiler will not let the editor interfere
 - Usage of UI elements such as Canvases, Panels, and Texts
+- Usage of "System.Serializable" and "SerializeField" properties
    
