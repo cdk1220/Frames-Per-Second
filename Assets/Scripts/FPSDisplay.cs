@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(FPSCounter))]
 public class FPSDisplay : MonoBehaviour {
-    public Text fpsLabel;
+    public Text highestFPSLabel, averageFPSLabel, lowestFPSLabel;
 
     FPSCounter fpsCounter;
 
@@ -25,6 +25,11 @@ public class FPSDisplay : MonoBehaviour {
     }
 
     void Update() {
-        fpsLabel.text = stringsFrom00To99[Mathf.Clamp(fpsCounter.AverageFPS, 0, 99)];
+        highestFPSLabel.text =
+            stringsFrom00To99[Mathf.Clamp(fpsCounter.HighestFPS, 0, 99)];
+        averageFPSLabel.text =
+            stringsFrom00To99[Mathf.Clamp(fpsCounter.AverageFPS, 0, 99)];
+        lowestFPSLabel.text =
+            stringsFrom00To99[Mathf.Clamp(fpsCounter.LowestFPS, 0, 99)];
     }
 }

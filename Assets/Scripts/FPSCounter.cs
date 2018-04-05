@@ -2,8 +2,10 @@
 
 public class FPSCounter : MonoBehaviour {
 
-    // private set and public get, this is what will be shown in the UI
+    // private set and public get
     public int AverageFPS { get; private set; }
+    public int HighestFPS { get; private set; }
+    public int LowestFPS { get; private set; }
 
     // Number of frames to average the frame rate over
     public int frameRange = 60;
@@ -51,11 +53,24 @@ public class FPSCounter : MonoBehaviour {
 
     void CalculateFPS() {
         int sum = 0;
+        int highest = 0;
+        int lowest = int.MaxValue;
 
         for (int i = 0; i < frameRange; i++) {
-            sum += fpsBuffer[i];
+            int fps = fpsBuffer[i];
+            sum += fps;
+
+            if (fps > highest) {
+                highest = fps;
+            }
+
+            if (fps < lowest) {
+                lowest = fps;
+            }
         }
 
         AverageFPS = sum / frameRange;
+        HighestFPS = highest;
+        LowestFPS = lowest;
     }
 }
