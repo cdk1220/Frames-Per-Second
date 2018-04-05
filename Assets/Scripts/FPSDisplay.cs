@@ -7,6 +7,15 @@ public class FPSDisplay : MonoBehaviour {
 
     FPSCounter fpsCounter;
 
+    [System.Serializable]
+    private struct FPSColor {
+        public Color color;
+        public int minimumFPS;
+    }
+
+    [SerializeField]
+    private FPSColor[] coloring;
+
     static string[] stringsFrom00To99 = {
         "00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
         "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
@@ -25,11 +34,19 @@ public class FPSDisplay : MonoBehaviour {
     }
 
     void Update() {
-        highestFPSLabel.text =
-            stringsFrom00To99[Mathf.Clamp(fpsCounter.HighestFPS, 0, 99)];
-        averageFPSLabel.text =
-            stringsFrom00To99[Mathf.Clamp(fpsCounter.AverageFPS, 0, 99)];
-        lowestFPSLabel.text =
-            stringsFrom00To99[Mathf.Clamp(fpsCounter.LowestFPS, 0, 99)];
+        Display(highestFPSLabel, fpsCounter.HighestFPS);
+        Display(averageFPSLabel, fpsCounter.AverageFPS);
+        Display(lowestFPSLabel, fpsCounter.LowestFPS);
+    }
+
+    void Display(Text label, int fps) {
+        label.text = stringsFrom00To99[Mathf.Clamp(fps, 0, 99)];
+
+        for (int i = 0; i < coloring.Length; i++) {
+            if (fps >= coloring[i].minimumFPS) {
+                label.color = coloring[i].color;
+                break;
+            }
+        }
     }
 }
